@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive</title>
+    <link rel="stylesheet" href="https://fonts.maateen.me/kalpurush/font.css">
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: 'Kalpurush', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Styling for the quote text */
+        .quote {
+            font-size: 2rem;
+            max-width: 80%;
+            line-height: 1.5;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Quote display container -->
+    <div class="quote" id="quote">"The best way to predict the future is to create it." - Peter Drucker</div>
+
+    <script>
+        // List of quotes
+        const quotes = [
+            '"The best way to predict the future is to create it." - Peter Drucker',
+            '"Success is not final, failure is not fatal: It is the courage to continue that counts." - Winston Churchill',
+            '"In the middle of every difficulty lies opportunity." - Albert Einstein',
+            '"Your time is limited, so don’t waste it living someone else’s life." - Steve Jobs',
+            '"Happiness is not something ready made. It comes from your own actions." - Dalai Lama'
+        ];
+
+        let currentIndex = 0; // Current quote index
+        const quoteElement = document.getElementById('quote');
+
+        // Function to change the quote
+        function changeQuote() {
+            // Fade out
+            quoteElement.style.opacity = 0;
+
+            setTimeout(() => {
+                // Update the quote after fade-out
+                currentIndex = (currentIndex + 1) % quotes.length;
+                quoteElement.textContent = quotes[currentIndex];
+
+                // Fade in
+                quoteElement.style.opacity = 1;
+            }, 500); // Match fade-out duration
+        }
+
+        // Change quotes every 5 seconds
+        setInterval(changeQuote, 5000);
+    </script>
+</body>
+</html>
